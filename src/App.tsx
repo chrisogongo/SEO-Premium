@@ -8,6 +8,7 @@ import {
   Zap, Shield, Database, Eye, ExternalLink, Star,
   ArrowUpRight, ArrowDownRight, Activity, Target
 } from 'lucide-react';
+import AIAssistant from './components/AIAssistant';
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
   PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid,
@@ -452,7 +453,8 @@ function OnPageSEOPage() {
   );
 }
 
-function AIAssistantPage() {
+// AIAssistantPage is now imported from ./components/AIAssistant
+function _OLD_AIAssistantPage_REMOVED() {
   const [selectedTask, setSelectedTask] = useState('meta-description');
   const [generatedContent, setGeneratedContent] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
@@ -1773,7 +1775,7 @@ export default function App() {
     switch (currentPage) {
       case 'dashboard': return <DashboardPage />;
       case 'onpage': return <OnPageSEOPage />;
-      case 'ai-assistant': return <AIAssistantPage />;
+      case 'ai-assistant': return <AIAssistant />;
       case 'keywords': return <KeywordsPage />;
       case 'schema': return <SchemaPage />;
       case 'sitemap': return <GenericPage title="XML Sitemaps" description="Manage and configure your XML sitemaps" icon={<Globe size={32} />} />;

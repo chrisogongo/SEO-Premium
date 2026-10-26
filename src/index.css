@@ -34,7 +34,7 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Line clamp utility */
+/* Line clamp for 2 lines */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;

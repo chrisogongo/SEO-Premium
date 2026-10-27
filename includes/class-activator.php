@@ -29,7 +29,6 @@ class SmartRank_Activator {
         $charset = $wpdb->get_charset_collate();
         require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
-        // SEO Meta table
         $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}smartrank_meta (
             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
             post_id bigint(20) unsigned NOT NULL,
@@ -41,7 +40,6 @@ class SmartRank_Activator {
         ) $charset;";
         dbDelta( $sql );
 
-        // Redirects table
         $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}smartrank_redirects (
             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
             source varchar(255) NOT NULL,
@@ -56,7 +54,6 @@ class SmartRank_Activator {
         ) $charset;";
         dbDelta( $sql );
 
-        // 404 Log table
         $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}smartrank_404_log (
             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
             url varchar(255) NOT NULL,
@@ -68,7 +65,6 @@ class SmartRank_Activator {
         ) $charset;";
         dbDelta( $sql );
 
-        // Audit Results table
         $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}smartrank_audit (
             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
             run_id varchar(64) NOT NULL,
@@ -85,7 +81,6 @@ class SmartRank_Activator {
         ) $charset;";
         dbDelta( $sql );
 
-        // Keywords table
         $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}smartrank_keywords (
             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
             keyword varchar(191) NOT NULL,
@@ -101,7 +96,6 @@ class SmartRank_Activator {
         ) $charset;";
         dbDelta( $sql );
 
-        // Audit Log table
         $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}smartrank_audit_log (
             id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
             user_id bigint(20) unsigned NOT NULL,
@@ -133,7 +127,6 @@ class SmartRank_Activator {
             'ai_model'           => 'gpt-4',
             'ai_api_key'         => '',
             'ai_monthly_limit'   => 50,
-            'gsc_connected'      => false,
         );
         if ( false === get_option( 'smartrank_settings' ) ) {
             update_option( 'smartrank_settings', $defaults );
